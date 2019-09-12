@@ -1,13 +1,15 @@
-# Veeam vCloud Director Plugin
+# Veeam vCloud Director (vCD) Plugin
 
 *Super rough draft of documentation. Much to do here.*
 
-This plugin uses the [Veeam vCD Self-Service Backup Portal](https://helpcenter.veeam.com/docs/backup/em/em_managing_vms_in_vcd_org.html?ver=95u4) and presents this portal  natively within the vCloud Director (vCD) Web UI.
+This plugin uses the [Veeam vCD Self-Service Backup Portal](https://helpcenter.veeam.com/docs/backup/em/em_managing_vms_in_vcd_org.html?ver=95u4) and presents this portal  natively within the VMware vCloud Director Web UI.
 
 * Supported vCD Versions
   * 9.1.0.2+
   * 9.5.x
   * 9.7.x
+
+Current version of the plugin can be downloaded [here](https://github.com/carceneaux/plugin/releases/tag/v0.8).
 
 ## Installing Veeam Plugin
 
@@ -42,7 +44,10 @@ Veeam plugin installation can be completed using 2 different methods depending o
 
 #### Steps
 
-* [Automated Deploy Method using Python](https://github.com/vmware/vcd-ext-sdk/tree/master/ui/vcd-plugin-seed#automated-deploy-method)
+* Download the current plugin [here](https://github.com/carceneaux/plugin/releases/download/v0.8/veeam-vcd-plugin-v0.8.zip)
+* Unzip the plugin on your computer
+* Loosely follow these instructions: [Automated Deploy Method using Python](https://github.com/vmware/vcd-ext-sdk/tree/master/ui/vcd-plugin-seed#automated-deploy-method)
+  * *INSTRUCTIONS TO BE IMPROVED*
 
 ## Configuring Veeam Plugin
 
