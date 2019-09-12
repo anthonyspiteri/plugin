@@ -11,6 +11,31 @@ This plugin uses the [Veeam vCD Self-Service Backup Portal](https://helpcenter.v
 
 Current version of the plugin can be downloaded [here](https://github.com/carceneaux/plugin/releases/tag/v0.8).
 
+## Enterprise Manager (EM) Requirements
+
+As the Veeam vCD Plugin is fully reliant on the [Veeam vCD Self-Service Backup Portal](https://helpcenter.veeam.com/docs/backup/em/em_managing_vms_in_vcd_org.html?ver=95u4), it must be fully setup and accessible via the internet prior to plugin installation.
+
+### Enterprise Manager Web Server must trust vCloud Director
+
+As a secure web application, we'll need to make a few minor adjustments to the EM web server to avoid CORS policy violations. Please follow these required steps:
+
+* On your EM server, open `Internet Information Services (IIS) Manager`
+* Navigate to the `VeeamBackup` site (see screenshot below) and open `HTTP Response Headers`
+
+![IIS Veeam Site](images/iis-veeam.png)
+
+* Add/Update the below entries:
+  * Access-Control-Allow-Credentials: `true`
+  * Access-Control-Allow-Headers: `*`
+  * Access-Control-Allow-Origin: `<vCD URL>`
+  * Access-Control-Expose-Headers: `*`
+  * Content-Security-Policy: `frame-ancestors <vCD FQDN>`
+  * X-Frame-Options: `ALLOW-FROM <vCD URL>`
+
+Note the screenshot below. In this example, the vCD public URL is `https://veeamvcd.duckdns.org`.
+
+![IIS HTTP Headers](images/iis-http-headers.png)
+
 ## Installing Veeam Plugin
 
 Veeam plugin installation can be completed using 2 different methods depending on your vCD environment. If you're using vCD 9.7, it's highly recommended you use the VMware Plugin Lifecycle Manager (Method 1). Otherwise, it most likely will be easier to use Method 2.
